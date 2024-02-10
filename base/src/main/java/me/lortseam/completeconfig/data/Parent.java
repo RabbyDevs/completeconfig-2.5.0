@@ -12,6 +12,7 @@ import me.lortseam.completeconfig.text.TranslationKey;
 import me.lortseam.completeconfig.util.ReflectionUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 
@@ -22,7 +23,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
-import java.util.ArrayList; 
 
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public abstract class Parent implements StructurePart, Translatable {
@@ -76,8 +76,7 @@ public abstract class Parent implements StructurePart, Translatable {
                 }
             }).forEach(this::resolve);
             Class<?>[] nestedClasses = clazz.getDeclaredClasses();
-            nestedClasses =
-            Collections.reverse(nestedClasses);
+            ArrayUtils.reverse(nestedClasses);
             Arrays.stream(nestedClasses).filter(nestedClass -> {
                 if (nestedClass.isAnnotationPresent(ConfigContainer.Transitive.class)) {
                     if (!ConfigContainer.class.isAssignableFrom(nestedClass)) {
