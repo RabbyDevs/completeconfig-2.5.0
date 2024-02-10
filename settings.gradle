@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+include("base")
+include("gui-cloth")
+include("gui-yacl")
+include("test-mod")
+
+rootProject.name = 'completeconfig'

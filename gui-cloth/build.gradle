@@ -1,0 +1,8 @@
+dependencies {
+    api(project(path: ":base", configuration: "namedElements"))
+
+    modApi("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
+        exclude(group: "net.fabricmc", module: 'fabric-loader')
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+}
