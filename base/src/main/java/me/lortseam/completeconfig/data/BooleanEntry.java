@@ -18,7 +18,6 @@ public class BooleanEntry extends Entry<Boolean> {
     private Map<Boolean, TranslationKey> valueTranslations;
     @Environment(EnvType.CLIENT)
     @Getter
-    private final boolean checkbox;
 
     public BooleanEntry(EntryOrigin origin) {
         super(origin);
